@@ -5,7 +5,7 @@ import { ticketList } from "../utils/Data";
 export default function Home() {
   return (
     <main>
-      <section className="px-[20px] md:px-[30px] lg:px-[120px] mx-auto">
+      <section className="px-[1.25rem] md:px-[1.875rem] lg:px-[9.375rem] 3xl:px-[17.125rem] mx-auto">
         <h1 className="text-center text-3xl font-bold my-6 italic">
           Lorem ipsum dolor
         </h1>
