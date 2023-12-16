@@ -1,26 +1,29 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.spiky-border{
+  --mask:
+      radial-gradient(4.66px at 50% 6.40px, #000 99%, #0000 101%) calc(50% - 8px) 0/16px 51% repeat-x,
+      radial-gradient(4.66px at 50% -2.4px, #0000 99%, #000 101%) 50% 4px/16px calc(51% - 4px) repeat-x,
+      radial-gradient(4.66px at 50% calc(100% - 6.40px), #000 99%, #0000 101%) calc(50% - 8px) 100%/16px 51% repeat-x,
+      radial-gradient(4.66px at 50% calc(100% + 2.40px), #0000 99%, #000 101%) 50% calc(100% - 4px)/16px calc(51% - 4px) repeat-x;
+  -webkit-mask: var(--mask);
+  mask: var(--mask);
+
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.card-background{
+  background-image: radial-gradient(circle at 0 45%,
+        rgba(255, 255, 224, 0) 8px,
+        #f8f1f1 0.5em),
+      radial-gradient(circle at 100% 45%,
+        rgba(255, 255, 224, 0) 8px,
+        #f8f1f1 0.5em);
+    background-position: top left, top right;
+    background-size: 51% 100%;
+    background-repeat: no-repeat;
 }
 
-* {
-  box-sizing: border-box;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
-}
