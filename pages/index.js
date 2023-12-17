@@ -10,14 +10,14 @@ import { useRouter } from "next/router";
 
 export default function Home() {
   const router = useRouter();
-  const [ticketInfo, setTicketInfo] = useState(ticketList);
+  const [displayTicket, setDisplayTicket] = useState(ticketList);
 
   useEffect(() => {
     if (!router.query.filter) {
-      return setTicketInfo(ticketList);
+      return setDisplayTicket(ticketList);
     }
 
-    setTicketInfo(
+    setDisplayTicket(
       ticketList.filter((ticket) => ticket.type === router.query.filter)
     );
   }, [router.query]);
@@ -39,7 +39,7 @@ export default function Home() {
           Lorem ipsum dolor
         </h1>
 
-        <div className="mb-6 flex items-center justify-center space-x-3">
+        <div className="mb-6 flex items-center justify-center flex-wrap space-x-3">
           {filterOptions.map((option) => (
             <FilterBtn
               key={option.value}
@@ -50,13 +50,17 @@ export default function Home() {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-5">
-          {ticketInfo.map((ticket) => (
-            <AnimatePresence key={ticket.id}>
-              <Card ticketNumber={ticket.number} tickerBadge={ticket.badge} />
-            </AnimatePresence>
-          ))}
-        </div>
+        <AnimatePresence>
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-5">
+            {displayTicket.map((ticket) => (
+              <Card
+                key={ticket.id}
+                ticketNumber={ticket.number}
+                tickerBadge={ticket.badge}
+              />
+            ))}
+          </div>
+        </AnimatePresence>
 
         <div className="flex items-center justify-center mt-12">
           <MoreBtn btnText="Find More Ticket" onClick={() => {}} />
