@@ -1,9 +1,10 @@
 import Badge from "./Badge";
 import BuyNowBtn from "./button/BuyNowBtn";
+import { motion } from "framer-motion";
 
 function Card({ ticketNumber, tickerBadge }) {
   return (
-    <div className="w-full">
+    <motion.div layout className="w-full">
       <div className="w-full h-[14.938rem] card-background spiky-border relative">
         <div className="flex items-center justify-center h-full flex-col space-y-3">
           <div className="bg-primary w-8 h-8 rounded-full"></div>
@@ -12,7 +13,7 @@ function Card({ ticketNumber, tickerBadge }) {
         <Badge badgeLabel={tickerBadge} />
       </div>
       <BuyNowBtn />
-    </div>
+    </motion.div>
   );
 }
 
